@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db_sototam", "db_sototam\db_sototam.csproj", "{3ACAF815-1C41-4F29-A182-49568A0A442B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "configurator", "configurator\configurator.csproj", "{C41FB349-02E6-4A68-B9D3-F792B604449B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{3ACAF815-1C41-4F29-A182-49568A0A442B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ACAF815-1C41-4F29-A182-49568A0A442B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ACAF815-1C41-4F29-A182-49568A0A442B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41FB349-02E6-4A68-B9D3-F792B604449B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41FB349-02E6-4A68-B9D3-F792B604449B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41FB349-02E6-4A68-B9D3-F792B604449B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41FB349-02E6-4A68-B9D3-F792B604449B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58C36CD9-554A-433B-8F8C-7157134AF403}
 	EndGlobalSection
 EndGlobal

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace db_sototam.Properties {
+namespace configurator.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace db_sototam.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("db_sototam.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("configurator.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,12 +61,28 @@ namespace db_sototam.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        ///   Ищет локализованную строку, похожую на -- phpMyAdmin SQL Dump
+        ///-- version 4.8.3
+        ///-- https://www.phpmyadmin.net/
+        ///--
+        ///-- Хост: 127.0.0.1:3306
+        ///-- Время создания: Апр 19 2019 г., 19:07
+        ///-- Версия сервера: 5.5.61-MariaDB
+        ///-- Версия PHP: 5.6.38
+        ///
+        ///SET SQL_MODE = &quot;NO_AUTO_VALUE_ON_ZERO&quot;;
+        ///SET AUTOCOMMIT = 0;
+        ///START TRANSACTION;
+        ///SET time_zone = &quot;+02:00&quot;;
+        ///
+        ///
+        ////*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+        ////*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+        ////*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECT [остаток строки не уместился]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_settings_326699 {
+        internal static string Log {
             get {
-                object obj = ResourceManager.GetObject("iconfinder_settings_326699", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Log", resourceCulture);
             }
         }
     }

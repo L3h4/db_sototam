@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,17 @@ namespace db_sototam
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { 
+            AppSettings.Configure();
             DBcon = new DBconnector();
+            
             if (DBcon.checkConnection()) { }
             else
             {
-                MessageBox.Show("ОШИБКА: БД не найдена");
-                Environment.Exit(1);
+                MessageBox.Show("ОШИБКА: БД не найдена, чтобы перекофигурирровать нажмите ОК");
+                PictureBox1_Click(this, new EventArgs());
             }
-        }
+        }   
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,6 +60,18 @@ namespace db_sototam
                 if(DBcon.insertInfo(id, mode, name, coment)) { label1.Text = "ОК"; }
                 else { label1.Text = "ОШИБКА"; Environment.Exit(1); }
             }
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo proc = new ProcessStartInfo();
+            proc.FileName = Environment.CurrentDirectory + "\\configurator.exe";
+            Process.Start(proc);
+            Application.Exit();
         }
     }
 }

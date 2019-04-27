@@ -6,13 +6,14 @@
 *.user
 *.userosscache
 *.sln.docstates
+.gitignore
+.gitattributes
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
 # Build results
-.gitignore
-.gitattributes
+
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

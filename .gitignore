@@ -11,6 +11,8 @@
 *.userprefs
 
 # Build results
+.gitignore
+.gitattributes
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

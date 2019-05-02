@@ -18,6 +18,7 @@ namespace db_sototam
 
         public static string Encrypt(string plainText, string passPhrase)
         {
+            if (plainText == null || passPhrase == null) { return ""; }
             // Salt and IV is randomly generated each time, but is preprended to encrypted cipher text
             // so that the same Salt and IV values can be used when decrypting.  
             var saltStringBytes = Generate256BitsOfRandomEntropy();
@@ -57,6 +58,8 @@ namespace db_sototam
         {
             // Get the complete stream of bytes that represent:
             // [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]
+            if (cipherText == null||passPhrase == null) { return ""; }
+            
             var cipherTextBytesWithSaltAndIv = Convert.FromBase64String(cipherText);
             // Get the saltbytes by extracting the first 32 bytes from the supplied cipherText bytes.
             var saltStringBytes = cipherTextBytesWithSaltAndIv.Take(Keysize / 8).ToArray();

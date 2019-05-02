@@ -28,8 +28,15 @@ namespace db_sototam
             if (DBcon.checkConnection()) { }
             else
             {
-                MessageBox.Show("ОШИБКА: БД не найдена, чтобы перекофигурирровать нажмите ОК");
-                PictureBox1_Click(this, new EventArgs());
+                DialogResult r =  MessageBox.Show(null,"ОШИБКА: БД не найдена, запустить конфигуратор?", "ОШИБКА",MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if(r == DialogResult.Yes)
+                {
+                    PictureBox1_Click(this, new EventArgs());
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }   
 
@@ -70,7 +77,11 @@ namespace db_sototam
         {
             ProcessStartInfo proc = new ProcessStartInfo();
             proc.FileName = Environment.CurrentDirectory + "\\configurator.exe";
-            Process.Start(proc);
+            try
+            {
+                Process.Start(proc);
+            }
+            catch { }
             Application.Exit();
         }
     }

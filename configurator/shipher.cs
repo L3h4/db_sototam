@@ -20,6 +20,7 @@ namespace configurator
         {
             // Salt and IV is randomly generated each time, but is preprended to encrypted cipher text
             // so that the same Salt and IV values can be used when decrypting.  
+            if (plainText == null || passPhrase == null) { return ""; }
             var saltStringBytes = Generate256BitsOfRandomEntropy();
             var ivStringBytes = Generate256BitsOfRandomEntropy();
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
@@ -55,6 +56,7 @@ namespace configurator
 
         public static string Decrypt(string cipherText, string passPhrase)
         {
+            if (cipherText == null || passPhrase == null) { return ""; }
             // Get the complete stream of bytes that represent:
             // [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]
             var cipherTextBytesWithSaltAndIv = Convert.FromBase64String(cipherText);

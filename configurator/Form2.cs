@@ -12,13 +12,33 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using configurator.Properties;
 using Microsoft.Win32;
+using System.Management;
 
 namespace configurator
 {
     
     public partial class Form2 : Form
     {
-        private const string encriptionKey = "iohghioaefklasdihglkkjdsj";
+        private static string encriptionKey
+        {
+            get
+            {
+                string cpuInfo = string.Empty;
+                ManagementClass mc = new ManagementClass("win32_processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+
+                foreach (ManagementObject mo in moc)
+                {
+                    if (cpuInfo == "")
+                    {
+                        //Get only the first CPU's ID
+                        cpuInfo = mo.Properties["processorID"].Value.ToString();
+                        break;
+                    }
+                }
+                return Environment.MachineName + "::" + cpuInfo;
+            }
+        }
         public Form2()
         {
             InitializeComponent();

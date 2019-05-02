@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
+using System.Management;
 
 namespace db_sototam
 {
@@ -15,7 +16,26 @@ namespace db_sototam
         //public static string mySQL_table;// = "log";
         public static string mySQL_login;// = "root";
         public static string mySQL_password;// = "";
-        private const string encriptionKey = "iohghioaefklasdihglkkjdsj";
+        private static string encriptionKey
+            {
+            get
+            {
+                string cpuInfo = string.Empty;
+                ManagementClass mc = new ManagementClass("win32_processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+
+                foreach (ManagementObject mo in moc)
+                {
+                    if (cpuInfo == "")
+                    {
+                        //Get only the first CPU's ID
+                        cpuInfo = mo.Properties["processorID"].Value.ToString();
+                        break;
+                    }
+                }
+                return Environment.MachineName + "::" + cpuInfo;
+            }
+            }
 
         // это трогать не нужно
         public static string mySQL_connect;

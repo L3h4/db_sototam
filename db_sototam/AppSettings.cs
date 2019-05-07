@@ -17,25 +17,12 @@ namespace db_sototam
         public static string mySQL_login;// = "root";
         public static string mySQL_password;// = "";
         private static string encriptionKey
-            {
+        {
             get
             {
-                string cpuInfo = string.Empty;
-                ManagementClass mc = new ManagementClass("win32_processor");
-                ManagementObjectCollection moc = mc.GetInstances();
-
-                foreach (ManagementObject mo in moc)
-                {
-                    if (cpuInfo == "")
-                    {
-                        //Get only the first CPU's ID
-                        cpuInfo = mo.Properties["processorID"].Value.ToString();
-                        break;
-                    }
-                }
-                return Environment.MachineName + "::" + cpuInfo;
+                return StringCipher.encriptionKey;
             }
-            }
+        }
 
         // это трогать не нужно
         public static string mySQL_connect;

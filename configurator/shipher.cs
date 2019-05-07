@@ -3,12 +3,32 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 using System.Linq;
-
+using System.Management;
 
 namespace configurator
 {
     public static class StringCipher
     {
+        public static string encriptionKey
+        {
+            get
+            {
+                string cpuInfo = string.Empty;
+                ManagementClass mc = new ManagementClass("win32_processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+
+                foreach (ManagementObject mo in moc)
+                {
+                    if (cpuInfo == "")
+                    {
+                        //Get only the first CPU's ID
+                        cpuInfo = mo.Properties["processorID"].Value.ToString();
+                        break;
+                    }
+                }
+                return cpuInfo + ":;" + Environment.MachineName + ";:" + cpuInfo;
+            }
+        }
         // This constant is used to determine the keysize of the encryption algorithm in bits.
         // We divide this by 8 within the code below to get the equivalent number of bytes.
         private const int Keysize = 256;
